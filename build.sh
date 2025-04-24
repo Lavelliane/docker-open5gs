@@ -16,6 +16,15 @@ fi
 echo "Enabling required MicroK8s addons..."
 microk8s enable dns storage ingress registry
 
+# Pull MongoDB image
+echo "Pulling MongoDB image..."
+docker pull mongo:4.4
+
+# Tag and push to MicroK8s local registry
+echo "Tagging and pushing MongoDB to local registry..."
+docker tag mongo:4.4 localhost:32000/mongo:4.4
+docker push localhost:32000/mongo:4.4
+
 # Define the registry URL
 REGISTRY="localhost:32000"
 
