@@ -34,7 +34,7 @@ data:
             mnc: 01
       sbi:
         server:
-          - address: h-nrf
+          - address: 0.0.0.0
             port: 80
 ---
 apiVersion: v1
@@ -53,7 +53,7 @@ data:
     ausf:
       sbi:
         server:
-          - address: h-ausf
+          - address: 0.0.0.0
             port: 80
         client:
           nrf:
@@ -75,7 +75,7 @@ data:
     udm:
       sbi:
         server:
-          - address: h-udm
+          - address: 0.0.0.0
             port: 80
         client:
           nrf:
@@ -99,7 +99,7 @@ data:
     udr:
       sbi:
         server:
-          - address: h-udr
+          - address: 0.0.0.0
             port: 80
         client:
           nrf:
@@ -121,7 +121,7 @@ data:
     sepp:
       sbi:
         server:
-          - address: h-sepp
+          - address: 0.0.0.0
             port: 80
         client:
           nrf:
@@ -154,7 +154,7 @@ data:
             mnc: 70
       sbi:
         server:
-          - address: v-nrf
+          - address: 0.0.0.0
             port: 80
 ---
 apiVersion: v1
@@ -173,7 +173,7 @@ data:
     ausf:
       sbi:
         server:
-          - address: v-ausf
+          - address: 0.0.0.0
             port: 80
         client:
           nrf:
@@ -195,7 +195,7 @@ data:
     nssf:
       sbi:
         server:
-          - address: v-nssf
+          - address: 0.0.0.0
             port: 80
         client:
           nrf:
@@ -222,7 +222,7 @@ data:
     bsf:
       sbi:
         server:
-          - address: v-bsf
+          - address: 0.0.0.0
             port: 80
         client:
           nrf:
@@ -244,7 +244,7 @@ data:
     pcf:
       sbi:
         server:
-          - address: v-pcf
+          - address: 0.0.0.0
             port: 80
         client:
           nrf:
@@ -290,14 +290,14 @@ data:
     amf:
       sbi:
         server:
-          - address: v-amf
+          - address: 0.0.0.0
             port: 80
         client:
           nrf:
             - uri: http://v-nrf:80
       ngap:
         server:
-          - address: v-amf
+          - address: 0.0.0.0
       access_control:
         - plmn_id:
             mcc: 999
@@ -350,20 +350,20 @@ data:
     smf:
       sbi:
         server:
-          - address: v-smf
+          - address: 0.0.0.0
             port: 80
         client:
           nrf:
             - uri: http://v-nrf:80
       pfcp:
         server:
-          - address: v-smf
+          - address: 0.0.0.0
         client:
           upf:
             - address: v-upf
       gtpu:
         server:
-          - address: v-smf
+          - address: 0.0.0.0
       session:
         - subnet: 10.45.0.0/16
           gateway: 10.45.0.1
@@ -388,11 +388,11 @@ data:
     upf:
       pfcp:
         server:
-          - address: v-upf
+          - address: 0.0.0.0
         client:
       gtpu:
         server:
-          - address: v-upf
+          - address: 0.0.0.0
       session:
         - subnet: 10.45.0.0/16
           gateway: 10.45.0.1
@@ -413,7 +413,7 @@ data:
     sepp:
       sbi:
         server:
-          - address: v-sepp
+          - address: 0.0.0.0
             port: 80
         client:
           nrf:
@@ -435,10 +435,10 @@ data:
   packetrusher.yaml: |
     gnodeb:
       controlif:
-        ip: "gnb"
+        ip: "0.0.0.0"
         port: 38412
       dataif:
-        ip: "gnb"
+        ip: "0.0.0.0"
         port: 2152
       plmnlist:
         mcc: "999"
