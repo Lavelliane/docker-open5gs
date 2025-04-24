@@ -25,6 +25,15 @@ echo "Tagging and pushing MongoDB to local registry..."
 docker tag mongo:4.4 localhost:32000/mongo:4.4
 docker push localhost:32000/mongo:4.4
 
+# Pull PacketRusher image
+echo "Pulling PacketRusher image..."
+docker pull ghcr.io/borjis131/packetrusher:20250225
+
+# Tag and push to MicroK8s local registry
+echo "Tagging and pushing PacketRusher to local registry..."
+docker tag ghcr.io/borjis131/packetrusher:20250225 localhost:32000/ghcr.io/borjis131/packetrusher:20250225
+docker push localhost:32000/ghcr.io/borjis131/packetrusher:20250225
+
 # Define the registry URL
 REGISTRY="localhost:32000"
 
