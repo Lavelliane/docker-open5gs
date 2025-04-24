@@ -432,23 +432,23 @@ metadata:
   name: packetrusher-config
   namespace: open5gs
 data:
-  packetrusher.yaml: |
+  config.yml: |
     gnodeb:
       controlif:
-        ip: "0.0.0.0"
+        ip: '0.0.0.0'
         port: 38412
       dataif:
-        ip: "0.0.0.0"
+        ip: '0.0.0.0'
         port: 2152
       plmnlist:
-        mcc: "999"
-        mnc: "70"
-        tac: "000001"
-        gnbid: "000008"
+        mcc: '999'
+        mnc: '70'
+        tac: '000001'
+        gnbid: '000008'
       slicesupportlist:
-        sst: "01"
-        sd: "000001"
-    
+        sst: '01'
+        sd: '000001'
+
     ue:
       hplmn:
         mcc: '001'
@@ -474,10 +474,11 @@ data:
         nea1: false
         nea2: true
         nea3: false
-    
+
     amfif:
-      - ip: "v-amf"
+      - ip: 'v-amf'
         port: 38412
+
     logs:
       level: 4
 EOF
@@ -1256,15 +1257,15 @@ spec:
       containers:
         - name: packetrusher
           image: ghcr.io/borjis131/packetrusher:20250225
-          command: ["--config", "/PacketRusher/config/packetrusher.yaml", "ue"]
-          securityContext:
-            privileged: true
-            capabilities:
-              add: ["ALL"]
+          imagePullPolicy: IfNotPresent
+          workingDir: /PacketRusher
+          command: [ "./packetrusher", "ue" ]
           volumeMounts:
             - name: config
-              mountPath: /PacketRusher/config/packetrusher.yaml
-              subPath: packetrusher.yaml
+              mountPath: /PacketRusher/config/config.yml
+              subPath: config.yml
+          securityContext:
+            privileged: true
       volumes:
         - name: config
           configMap:
