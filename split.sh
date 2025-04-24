@@ -503,7 +503,7 @@ spec:
     spec:
       containers:
         - name: mongodb
-          image: mongo:6.0
+          image: mongo:4.4
           command: ["mongod", "--bind_ip", "0.0.0.0", "--port", "27017"]
           ports:
             - containerPort: 27017
